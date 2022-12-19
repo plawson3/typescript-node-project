@@ -1,16 +1,26 @@
 {
-  "dependencies": {
-    "inquirer": "^8.0.0"
-  },
-  "name": "hr-calc-using-inquirer",
+  "name": "hr-number-guessing-game",
   "version": "1.0.0",
-  "description": "testing inquirer npm package",
+  "description": "A Simple Number Guessing Name.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
-  "author": "Haris",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plawson3/MetaCourseProjects.git"
+  },
+  "author": "Haris Rehman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plawson3/MetaCourseProjects/issues"
+  },
+  "homepage": "https://github.com/plawson3/MetaCourseProjects#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
