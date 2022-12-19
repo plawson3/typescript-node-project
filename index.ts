@@ -1,75 +1,164 @@
 import { question } from 'readline-sync';
 
-export function RandomNumberGenerator(limit): number {
-    const randomNumber = Math.random() * limit;
-    const randomNumberNew = Math.floor(randomNumber);
-    return randomNumberNew;
-}
+class ATM {
 
-export function printYellow(msg:string):string
-{
-    const frmtmsg :string = '\u001b[' + 33 + 'm' + msg + '\u001b[0m';
-    return frmtmsg;
-}
+    private _username: string;
+    private _userid: string;
+    private _pin: number;
+    private _balance: number;
 
-export function printGreen(msg: string): string {
-    const frmtmsg: string = '\u001b[' + 32 + 'm' + msg + '\u001b[0m';
-    return frmtmsg;
-}
+    constructor(username: string, userid: string, pin: number, balance: number) {
+        this._balance = balance;
+        this._pin = pin;
+        this._userid = userid;
+        this._username = username;
+    }
 
-export function printRed(msg: string): string {
-    const frmtmsg: string = '\u001b[' + 31 + 'm' + msg + '\u001b[0m';
-    return frmtmsg;
-}
+    public getBalance(): number {
+        return this._balance;
+    }
+    public setBalance(v: number) {
+        this._balance = v;
+    }
 
-export function printAuthorName(msg: string): string {
-    const frmtmsg: string = '\u001b[' + 36 + 'm' + msg + '\u001b[0m';
-    return frmtmsg;
-}
+    public getPin(): number {
+        return this._pin;
+    }
+    public setPin(v: number) {
+        this._pin = v;
+    }
 
-export function endLines():void
-{
-    console.log(`${printYellow(`|\t\t\t\t\t |`)}`);
-    console.log(`${printYellow(`|========= *********END******** =========|`)}\n\n`);
-}
+    public getUserName(): string {
+        return this._username;
+    }
+    public setUserName(v: string) {
+        this._username = v;
+    }
 
-export function main() {
-    let score: number = 0;
+    public getUserId(): string {
+        return this._userid;
+    }
+    public setUserId(v: string) {
+        this._userid = v;
+    }
 
-    while (true) {
-
-        const range = 10;
-        console.log(`\n\n${printYellow('|========================================|')}`)
-        console.log(`|\t\t\t\t\t |\n${printAuthorName('|========= Game By Haris Rehman =========|')} \n|\t\t\t\t\t |`);
-        console.log(`${printYellow('|========= Number Guessing Game =========|')} \n|\t\t\t\t\t |`);
-        console.log(`${printYellow('|\t   Press "S" to STOP \t\t |')} \n|\t\t\t\t\t |`);
-        console.log(`${printYellow('|========= ******************** =========|')} \n|\t\t\t\t\t |`);
-        
-        const input = question(`${printYellow(`|Enter Number between 1-${range} : `)}`);
-        const RandNumber = RandomNumberGenerator(range);
-
-        //Stop Code
-        if (input === 'S' || input === 's') {
-            console.log(`${printYellow('|Thanks for Playing \t\t\t |')}`);
-            console.log(`${printYellow(`|your Final Score is ${score}. \t\t |`)}`);
-            endLines();
-            break;
-        }
-        //When Guessed Number is Correct!!!
-        else if (RandNumber === Number(input)) {
-            score += 1;
-            console.log(printGreen('|You Guessed it Right, \t\t\t |'));
-            console.log(printGreen(`|Generated Number: ${RandNumber}, your Score: ${score} \t |`));
-            endLines();
-        }
-        //When Guessed Number is Wrong!!!
-        else{
-            console.log(printRed(`|Guessed Number was wrong ${input}.\t\t |`));
-            console.log(printRed(`|Generated Number was ${RandNumber}.\t\t |`));
-            endLines();
+    Deposit(atm: ATM, v: number) {
+        if (v > 0) {
+            this._balance = this._balance + v;
+            console.log(`\nYou have made a deposit of ${v}`);
+            this.CheckBalance();
         }
     }
 
+    Withdraw(atm: ATM, v: number) {
+
+        if (this.getBalance() >= v && v > 0) {
+            this._balance = this._balance - v;
+            console.log(`\nYou have Withdraw ${v} from your account.`);
+            this.CheckBalance();
+        }
+        else {
+            console.log("\nSorry, you don't have that amount :(");
+        }
+    }
+
+    CheckBalance() {
+        console.log(`\nHi ${this._username}, your Current Balance is ${this._balance}`);
+    }
+
+    Info() {
+        console.log(`\nUser Name : ${this._username}\nUserId : ${this._userid}\nPIN : ${this._pin}\nBalance : ${this._balance}`);
+    }
+
+    options(): void {
+        console.log(`\n\nWelcome ${this._username}, Please Choose below options.`);
+        console.log(`1 : User Information...`);
+        console.log(`2 : Check Balance...`);
+        console.log(`3 : Deposit...`);
+        console.log(`4 : Withdraw...`);
+        console.log(`5 : Exit...\n***********END***********\n\n`);
+    }
 }
-//Function Call
+
+
+function main() {
+
+    var customers = [
+        { UserName: "Haris Rehman", UserId: "haris155", Pin: 7860, Balance: 20000 },
+        { UserName: "Ammad Raza", UserId: "ammad111", Pin: 1234, Balance: 50000 },
+        { UserName: "Ali Raza", UserId: "ali111", Pin: 1111, Balance: 54000 },
+        { UserName: "Ahmad Khan", UserId: "ahmad321", Pin: 3211, Balance: 67000 },
+    ]
+
+
+
+    let successFlag: Boolean = false;
+    let UserObj;
+    console.log("\n|===================================|");
+    console.log("|\t\t\t\t    |\n|**** Welcome to Typescript ATM ****|\n|\t\t\t\t    |");
+    console.log("|===================================|\n");
+
+    while (true) {
+
+        const userid = question("Enter UserId: ");
+        UserObj = customers.find(x => x.UserId === userid);
+        const uesridExist = customers.find(x => x.UserId === userid) != undefined ? true : false;
+
+        if (uesridExist) {
+
+            let countPin: number = 1;
+            while (countPin < 3) {
+
+                const pin = Number(question("Enter PIN: "));
+                const IsCorrectPin = customers.find(x => x.Pin === pin) != undefined ? true : false;
+                if (countPin === 3) {
+                    break;
+                }
+                if (IsCorrectPin) {
+                    successFlag = true;
+                    break;
+                }
+                else {
+                    console.log(`You have ${3 - countPin} tries left`);
+                    countPin += 1;
+                }
+            }
+        }
+        if (successFlag === true) {
+            break;
+        }
+    }
+
+    if (UserObj === null || UserObj === undefined) {
+        return UserObj;
+    }
+
+    const obj = new ATM(UserObj.UserName, UserObj.UserId, UserObj.Pin, UserObj.Balance);
+
+    let endFlag: Boolean = true;
+    while (endFlag) {
+        obj.options();
+        const userOpt = question("Kindly select an option...");
+        switch (userOpt) {
+            case '1':
+                obj.Info();
+                break;
+            case '2':
+                obj.CheckBalance();
+                break;
+            case '3':
+                const depositAmoutn = Number(question("How much money you want to deposit... : "));
+                obj.Deposit(obj, depositAmoutn);
+                break;
+            case '4':
+                const withdrawAmoutn = Number(question("How much money you want to Withdraw... : "));
+                obj.Withdraw(obj, withdrawAmoutn);
+                break;
+            case '5':
+                endFlag = false;
+                break;
+        }
+    }
+}
+
 main();

@@ -1,26 +1,22 @@
 {
-  "name": "hr-number-guessing-game",
+  "name": "hr-atm",
   "version": "1.0.0",
-  "description": "A Simple Number Guessing Name.",
+  "description": "A simple atm using typescript and Node Js.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/plawson3/MetaCourseProjects.git"
-  },
-  "author": "Haris Rehman",
+  "keywords": [
+    "ATM"
+  ],
+  "author": "Haris",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/plawson3/MetaCourseProjects/issues"
-  },
-  "homepage": "https://github.com/plawson3/MetaCourseProjects#readme",
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.4"
   },
   "dependencies": {
+    "@types/readline-sync": "^1.4.4",
     "readline-sync": "^1.4.10"
   }
 }
