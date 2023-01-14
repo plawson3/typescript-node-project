@@ -1,26 +1,19 @@
-import { question } from "readline-sync";
-import Student, { Person } from './Student.js';
+import Customer from "./Customer.js";
+import BankAccount from "./BankAccount.js";
 
 function Main() {
     try {
 
-        let input: string;
-        console.log("Type:  \n1. If you like to talk to others. \n2. If you would rather keep to yourself. ");
-        input = question();
+        //Bank Account created
+        const HarisBankAccount = new BankAccount();
+        HarisBankAccount.Credit(150);
 
-        const MyPerson = new Person();
-        MyPerson.AskQuestion(Number(input));
-        console.log(`You are: ${MyPerson.GetPersonality()}`);
-
-        let name: string = question('What is you Name: ');
-        const MyStudent = new Student();
-        MyStudent.Name = name;
-        console.log(`Your Name is ${MyStudent.Name} and Your Personality is ${MyStudent.GetPersonality()}`);
-
+        //customer created
+        const Haris = new Customer('Haris','Rehman','Male',23,'0311-2640322',HarisBankAccount);
+        Haris.CustomerInfo();
 
     } catch (error) {
-        console.log('Please Enter an Integer ');
-
+        console.log("Error");
     }
 }
 Main();
