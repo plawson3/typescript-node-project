@@ -1,13 +1,11 @@
 {
-  "name": "hr-quiz-app",
+  "name": "hr-countdown-timer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc --watch"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
