@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body class="container" style="background-color: hsl(206,92%,94%);">
+  <div id="main" class="p-2 text-dark bg-white" style="width: 50%; margin-left: 25%; margin-top: 10%;">
+    <div class="container  p-1 text-dark text-center mt-1 rounded-1">
+      <h1>Quiz App</h1>
+    </div>
+    <hr>
+    <div class="container p-3 text-dark mt-1 rounded-1" id="questionPortion">
+
+      <h2 id="question"></h2>
+
+      <ul class="mt-3 list-group">
+        <li class="mt-1 list-group-item d-flex justify-content-between align-items-flex-start">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="a" checked>
+            <label class="form-check-label" id="lbl_ans1" for="a">
+            </label>
+          </div>
+        </li>
+        <li class="mt-1 list-group-item d-flex justify-content-between align-items-center">
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="b">
+            <label class="form-check-label" id="lbl_ans2" for="b">
+            </label>
+          </div>
+        </li>
+        <li class="mt-1 list-group-item d-flex justify-content-between align-items-center">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="c">
+            <label class="form-check-label" id="lbl_ans3" for="c">
+            </label>
+          </div>
+        </li>
+        <li class="mt-1 list-group-item d-flex justify-content-between align-items-center">
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="d">
+            <label class="form-check-label" id="lbl_ans4" for="d">
+            </label>
+          </div>
+        </li>
+      </ul>
+
+      <div class="text-center">
+        <button id="showScore" class="btn btn-primary mt-3">Submit</button>
+      </div>
+
+      <div id="showResult" class="mt-3 text-center p-3 rounded-4"
+        style="width: 50%; margin-left: 25%; background-color: hsl(206,92%,94%); display: none;">
+        <h1>Your Result: <span id="score">0</span> </h1>
+        <button id="playAgain" onclick="toggleVisibility()" class="btn btn-primary bg-opacity-25">Play Again</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- scripts tags start -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="../dest/index.js"></script>
+</body>
+</html>
