@@ -1,22 +1,20 @@
 {
-  "name": "hr-countdown-timer",
+  "name": "hr-oop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "tsc --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/bootstrap": "^5.2.6",
-    "@types/jquery": "^3.5.14",
-    "jquery": "^3.6.2",
-    "typescript": "^4.9.4"
+    "@types/node": "^18.11.18"
   },
   "dependencies": {
-    "@types/uuid": "^9.0.0",
-    "uuid": "^9.0.0"
+    "@types/readline-sync": "^1.4.4",
+    "readline-sync": "^1.4.10"
   }
 }
