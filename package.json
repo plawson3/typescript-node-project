@@ -1,17 +1,17 @@
 {
-  "name": "hr-school-managemet-system",
+  "name": "adventure_game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node build/index.js"
-  },
   "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^4.9.4"
+    "@types/node": "^18.11.18"
   },
   "dependencies": {
     "@types/readline-sync": "^1.4.4",
